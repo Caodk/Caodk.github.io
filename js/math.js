@@ -9,7 +9,9 @@ NexT.plugins.others.math = function() {
         // 自定义内联数学公式的分隔符号
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          DisplayMath: [['$$', '$$'], ['\\[', '\\]']],                    
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEnvironments: true,
+          packages: ['base', 'ams', 'boldsymbol']
         },
         // SVG 渲染配置为全局共享字体缓存
         svg: {
@@ -40,8 +42,9 @@ NexT.plugins.others.math = function() {
                 {left: '\\(', right: '\\)', display: false},
                 {left: '\\[', right: '\\]', display: true}
             ],
-            
-            throwOnError : false
+            macros: {},
+            throwOnError : false,
+            strict: false
           })
         });
       }
